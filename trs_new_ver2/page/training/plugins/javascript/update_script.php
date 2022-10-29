@@ -1,42 +1,37 @@
 <script type="text/javascript">
-	 $(document).ready(function(){
-	 	load_update();
 
-    });
-   function load_update(){
-        var role = '<?=$role;?>';
+$(document).ready(function(){
+ 	load_update();
+});
+
+const load_update =()=>{
+    var role = '<?=$role;?>';
     var dateFrom = document.getElementById('update2requestDateFrom').value;
-       var dateTo = document.getElementById('update2requestDateTo').value;
+    var dateTo = document.getElementById('update2requestDateTo').value;
 
-       $.ajax({
-         url: '../../process/training_processor.php',
-                type: 'POST',
-                cache: false,
-                data:{
-                    method: 'update',
-                    role:role,
-                    dateFrom:dateFrom,
-                    dateTo:dateTo
-                },success:function(response){
-                    // console.log(response);
-                    document.getElementById('update_data').innerHTML = response;
-               
-                } 
-
+    $.ajax({
+        url: '../../process/training/update_sched.php',
+        type: 'POST',
+        cache: false,
+        data:{
+            method: 'update',
+            role:role,
+            dateFrom:dateFrom,
+            dateTo:dateTo
+        },success:function(response){
+            document.getElementById('update_data').innerHTML = response;       
+        } 
        });
-    }
+}
 
-    const get_update =(param)=>{
-    console.log(param);
+const get_update =(param)=>{
     var data = param.split('~!~');
     var id = data[0];
     var training_code = data[4];
-    var sched_stat = data[6];
-   
-   
+    var sched_stat = data[5];
   
     $.ajax({
-        url:'../../process/training_processor.php',
+        url:'../../process/training/update_sched.php',
         type: 'POST',
         cache:false,
         data:{
@@ -45,30 +40,26 @@
             training_code:training_code,
             sched_stat:sched_stat
         },success:function(response){
-            console.log(response);
             var string = response.split('~!~');
             $('#id_edit_updated_train').val(string[0]);
             $('#training_code_edit_updated').val(string[1]);
             $('#sched_stat_edit_updated').val(string[2]);
             $('#training_typee_edit_updated').val(string[3]);
-            $('#rtraining_type_edit_updated').val(string[4]);
-            $('#tprocess_edit_updated').val(string[5]);
-            $('#start_date_edit_updated').val(string[6]);
-            $('#start_time_edit_updated').val(string[7]);
-            $('#end_date_edit_updated').val(string[8]);
-            $('#end_time_edit_updated').val(string[9]);
-            $('#slot_edit_updated').val(string[10]);
-            $('#shift_edit_updated').val(string[11]);
-            $('#trainer_updated').val(string[12]);
-            $('#location_updated').val(string[13]);
-          
-
+            $('#tprocess_edit_updated').val(string[4]);
+            $('#start_date_edit_updated').val(string[5]);
+            $('#start_time_edit_updated').val(string[6]);
+            $('#end_date_edit_updated').val(string[7]);
+            $('#end_time_edit_updated').val(string[8]);
+            $('#slot_edit_updated').val(string[9]);
+            $('#shift_edit_updated').val(string[10]);
+            $('#trainer_updated').val(string[11]);
+            $('#location_updated').val(string[12]);
         }
     });
 
 }
 
-//update function in update_sched modal
+
 const updated_sched =()=>{
     var id = document.getElementById('id_edit_updated_train').value;
     var shift = document.getElementById('shift_edit_updated').value;
@@ -80,11 +71,9 @@ const updated_sched =()=>{
     var start_time = $('#start_time_edit_updated').val();
     var end_time = $('#end_time_edit_updated').val();   
     var process = $('#tprocess_edit_updated').val();
-    var rtraining_type = $('#rtraining_type_edit_updated').val();
     var trainer = $('#trainer_updated').val();
     var location = $('#location_updated').val();
     var full_name = '<?=$full_name?>';
-    console.log(full_name)
     if (trainer == '') {
         swal('INFORMATION','Please Insert Trainer!','info');
     }
@@ -96,7 +85,7 @@ const updated_sched =()=>{
     }
     else{
         $.ajax({
-        url: '../../process/training_processor.php',
+        url: '../../process/training/update_sched.php',
         type: 'POST',
         cache: false,
         data:{
@@ -111,16 +100,15 @@ const updated_sched =()=>{
             start_time:start_time,
             end_time:end_time,
             process:process,
-            rtraining_type:rtraining_type,
             trainer:trainer,
             location:location,
             full_name:full_name
-        },success:function(i){
-            console.log(i);
-            if (i = 'y') {
-                
-                 swal('SUCCESS','Success!','success');
-                	load_update();
+        },success:function(response){
+            if (response == 'success') {           
+                swal('SUCCESS','Success!','success');
+                load_update();
+            }else{
+                swal('Error','Error!','error');
             }
            
 

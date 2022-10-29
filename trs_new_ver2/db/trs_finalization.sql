@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2022 at 12:53 PM
+-- Generation Time: Oct 29, 2022 at 08:59 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -394,90 +394,92 @@ CREATE TABLE `trs_category` (
   `pe` varchar(5) DEFAULT NULL,
   `pd` varchar(5) DEFAULT NULL,
   `qa` varchar(5) DEFAULT NULL,
-  `tstats` varchar(5) DEFAULT NULL
+  `tstats` varchar(5) DEFAULT NULL,
+  `categ` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `trs_category`
 --
 
-INSERT INTO `trs_category` (`id`, `curiculum`, `eprocess`, `ojt_period`, `ptt`, `eq`, `pe`, `pd`, `qa`, `tstats`) VALUES
-(1, 'Initial_First_Process', 'Cutting and Crimping Process', '11', '1', NULL, NULL, NULL, NULL, 't1'),
-(2, 'Special_Process', 'Automatic Cutting Crimping and Twisting', '6', NULL, '1', '1', NULL, NULL, 't23'),
-(3, 'Initial_First_Process', 'Material Handling Zaihai', '1', NULL, NULL, '1', NULL, NULL, 't3'),
-(4, 'Special_Process', 'Non-Stop Crimping', '8', NULL, '1', '1', NULL, NULL, 't23'),
-(5, 'Special_Process', 'Aluminum Automatic Cutting and Crimping Process', '0', NULL, '1', '1', NULL, NULL, 't23'),
-(6, 'Initial_First_Process', 'Material Handling Production Distributor', '4', NULL, NULL, NULL, '1', NULL, 't4'),
-(7, 'SAM_Process', 'Sub Assembly Machine NS IV', '7', '1', '1', NULL, '1', NULL, 't124'),
-(8, 'Initial_Secondary_Common_Process', 'Casting Shield Wire', '6', '1', NULL, NULL, NULL, NULL, 't1'),
-(9, 'Special_Process', 'Casting Battery', '6', '1', NULL, '1', NULL, NULL, 't13'),
-(10, 'Initial_Secondary_Common_Process', 'Stripping Process include special wire', '4', '1', NULL, NULL, NULL, NULL, 't1'),
-(11, 'Initial_Secondary_Common_Process', 'Intermediate Stripping', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(12, 'Initial_Secondary_Common_Process', 'Manual Crimping', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(13, 'Initial_Secondary_Common_Process', 'Joint Crimping', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(14, 'Special_Process', 'Manual Crimping for Battery', '7', NULL, '1', '1', NULL, NULL, 't23'),
-(15, 'Initial_Secondary_Common_Process', 'Twisting Primary / Secondary & Aluminum', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(16, 'Special_Process', 'Dip Soldering', '8', NULL, '1', '1', NULL, NULL, 't23'),
-(17, 'Initial_Secondary_Common_Process', 'Joint Insulation Taping Normal & Shield Wire', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(18, 'Initial_Secondary_Common_Process', 'Joint Insulation Taping Joint', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(19, 'Initial_Secondary_Common_Process', 'Joint Insulation Taping Intermediate Welding Joint', '5', NULL, NULL, '1', NULL, NULL, 't3'),
-(20, 'Initial_Secondary_Common_Process', 'Point Marking', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(21, 'Special_Process', 'Ultrasonic Dip Soldering', '8', NULL, '1', '1', NULL, NULL, 't23'),
-(22, 'Special_Process', 'Heat Shrink Raychem', '4', NULL, '1', '1', NULL, NULL, 't23'),
-(23, 'Initial_Secondary_Special_Process_1', 'Heat Shrink Blower', '3', NULL, NULL, '1', NULL, NULL, 't3'),
-(25, 'Initial_Secondary_Common_Process', 'Resistance Welding Joint', '10', '1', NULL, NULL, NULL, NULL, 't1'),
-(26, 'Special_Process', 'LA Molding', '9', NULL, '1', '1', NULL, NULL, 't23'),
-(27, 'Special_Process', 'Silicon Injection', '5', NULL, '1', '1', NULL, NULL, 't23'),
-(28, 'Special_Process', 'Aluminum Preparation', '11', NULL, '1', '1', NULL, NULL, 't23'),
-(29, 'Special_Process', 'ST MAC', '4', NULL, '1', '1', NULL, NULL, 't23'),
-(30, 'Initial_Secondary_Special_Process_1', 'Shield Wire', '4', NULL, NULL, '1', NULL, NULL, 't3'),
-(31, 'Initial_Secondary_Special_Process_1', 'Shield Wire with Joint', '3', NULL, NULL, '1', NULL, NULL, 't3'),
-(32, 'Initial_Secondary_Special_Process_1', 'Shield Wire Taping', '3', NULL, NULL, '1', NULL, NULL, '3'),
-(33, 'Initial_Secondary_Special_Process_2', 'Shikakari Handling Wire Setting, Sorting & Picking', '3', NULL, NULL, NULL, '1', NULL, 't4'),
-(34, 'Initial_Secondary_Common_Process', 'Gomusen Insertion', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(35, 'Special_Process', 'UV-III Ultra violet', '0', NULL, '1', '1', NULL, NULL, 't23'),
-(36, 'Special_Process', 'Lamp Connector Pressure Welding', '0', NULL, '1', '1', NULL, NULL, 't23'),
-(42, 'Special_Process', 'AB Terminal Crimping', '10', NULL, '1', '1', NULL, NULL, 't23'),
-(43, 'Initial_Process', 'In-Process Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(44, 'Initial_Process', 'COT Automatic Cutting', '6', NULL, NULL, NULL, '1', NULL, 't4'),
-(45, 'Initial_Process', 'VO Automatic Cutting', '6', NULL, NULL, NULL, '1', NULL, 't4'),
-(46, 'Initial_Process', 'VS Automatic Cutting', '6', NULL, NULL, NULL, '1', NULL, 't4'),
-(48, 'Initial_Process', 'Tube Cutting Inspection', '5', NULL, NULL, NULL, '1', NULL, 't4'),
-(51, 'Final_Sub_Assembly_Process', 'Sub Assembly Process with SUB PC', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(52, 'Final_Sub_Assembly_Process', 'Sub Assembly Process Manual insertion', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(53, 'Final_Sub_Assembly_Process', 'Layout Process', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(54, 'Final_Sub_Assembly_Process', 'Airbag Sub Assembly Process', '7', '1', NULL, NULL, NULL, NULL, 't1'),
-(59, 'Final_Assembly_Process', 'Assy + Parts Distribution', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(60, 'Final_Assembly_Process', 'Grommet Insertion Process', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(61, 'Final_Assembly_Process', 'Long Grommet Insertion Process', '3', NULL, '1', NULL, NULL, NULL, 't2'),
-(62, 'Final_Assembly_Process', 'Option Taping Process', '2', '1', NULL, NULL, NULL, NULL, 't1'),
-(63, 'Final_Inspection_Process', 'Dimension Inspection', '10', '1', NULL, NULL, NULL, NULL, 't1'),
-(64, 'Final_Inspection_Process', 'Electricity Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(65, 'Final_Inspection_Process', 'Appearance Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(66, 'Final_Inspection_Process', 'Arm Type Torque Fixing Process', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(67, 'Special_Process', 'Grease Injection Process', '4', NULL, '1', NULL, '1', NULL, 't24'),
-(68, 'Special_Process', 'Fuse Image Inspection', '5', NULL, '1', NULL, '1', NULL, 't24'),
-(69, 'Special_Process', 'One Liquid Silicon Injection/ Helium Leak Checker', '6', NULL, '1', '1', NULL, NULL, 't23'),
-(70, 'Final_Inspection_Process', 'TBO Checking Process', '4', NULL, NULL, '1', NULL, NULL, 't3'),
-(72, 'Final_Process', 'Tsumesen Insertion', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(74, 'QA_Initial_Process', 'Terminal Crimping Inspection C& C and Manual', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(75, 'QA_Initial_Process', 'Battery Crimping Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(76, 'QA_Initial_Process', 'Joint Crimping Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(77, 'QA_Initial_Process', 'Resistance Welding Joint Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(78, 'QA_Initial_Process', 'Dip Solder Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(79, 'QA_Initial_Process', 'Ultrasonic Dip Solder Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(80, 'QA_Initial_Process', 'LA Mold Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(81, 'QA_Initial_Process', 'Shield Wire Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(82, 'QA_IQC', 'Raw Material Quality Assurance Inspection', '0', NULL, NULL, NULL, NULL, '1', 't5'),
-(83, 'QA_IQC', 'Plastic Tube Inspection', '0', NULL, NULL, NULL, NULL, '1', 't5'),
-(112, 'Initial_Process', 'QC TCRIMP - Terminal Crimping Inspection for Airbag and Manual Crimping', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(113, 'Initial_Process', 'QC JCRIMP - Joint Crimping Inspection', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(114, 'Initial_Process', 'QC RES J - Resistance Welding Joint Inspection', '3', '1', NULL, NULL, NULL, NULL, 't1'),
-(115, 'Initial_Secondary_Special_Process_2', 'V SHAPE TWISTING', '0', NULL, '1', '1', NULL, NULL, 't23'),
-(116, 'Final_Inspection_Process', 'Clamp Checking (Electricity Inspection)', '5', '1', NULL, NULL, NULL, NULL, 't1'),
-(117, 'Final_Assembly_Process', 'Long Grommet', '3', NULL, '1', NULL, NULL, NULL, 't2'),
-(118, 'Final_Process', 'Terminal Removing Process', '0', NULL, NULL, '1', NULL, NULL, 't3'),
-(119, 'Initial_Process', 'Re-Crimping', '0', '1', NULL, NULL, NULL, NULL, 't1');
+INSERT INTO `trs_category` (`id`, `curiculum`, `eprocess`, `ojt_period`, `ptt`, `eq`, `pe`, `pd`, `qa`, `tstats`, `categ`) VALUES
+(1, 'Initial First Process', 'Cutting and Crimping Process', '11', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(2, 'Initial First Process', 'Automatic Cutting Crimping and Twisting', '6', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(3, 'Initial First Process', 'Material Handling Zaihai', '1', NULL, NULL, '1', NULL, NULL, 't3', 'Initial Process'),
+(4, 'Initial First Process', 'Non-Stop Crimping', '8', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(5, 'Initial First Process', 'Aluminum Automatic Cutting and Crimping Process', '0', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(6, 'Initial First Process', 'Initial Material Handling Production Distributor', '4', NULL, NULL, NULL, '1', NULL, 't4', 'Initial Process'),
+(7, 'SAM Process (First Process and Sub Assembly Process)', 'Sub Assembly Machine NS IV', '7', '1', '1', NULL, '1', NULL, 't124', 'Initial Process'),
+(8, 'Initial Secondary Process', 'Casting Shield Wire', '6', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(9, 'Initial Secondary Process', 'Casting Battery', '6', '1', NULL, '1', NULL, NULL, 't13', 'Initial Process'),
+(10, 'Initial Secondary Process', 'Stripping Process include special wire', '4', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(11, 'Initial Secondary Process', 'Intermediate Stripping', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(12, 'Initial Secondary Process', 'Manual Crimping', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(13, 'Initial Secondary Process', 'Joint Crimping', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(14, 'Initial Secondary Process', 'Manual Crimping for Battery', '7', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(15, 'Initial Secondary Process', 'Twisting Primary / Secondary & Aluminum', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(16, 'Initial Secondary Process', 'Dip Soldering', '8', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(17, 'Initial Secondary Process', 'Joint Insulation Taping Normal & Shield Wire', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(18, 'Initial Secondary Process', 'Joint Insulation Taping Joint', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(19, 'Initial Secondary Process', 'Joint Insulation Taping Intermediate Welding Joint', '5', NULL, NULL, '1', NULL, NULL, 't3', 'Initial Process'),
+(20, 'Initial Secondary Process', 'Point Marking', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(21, 'Initial Secondary Process', 'Ultrasonic Dip Soldering', '8', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(22, 'Initial Secondary Process', 'Heat Shrink Raychem', '4', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(23, 'Initial Secondary Process', 'Heat Shrink Blower', '3', NULL, NULL, '1', NULL, NULL, 't3', 'Initial Process'),
+(24, 'Initial Secondary Process', 'Resistance Welding Joint', '10', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(25, 'Initial Secondary Process', 'LA Molding', '9', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(26, 'Initial Secondary Process', 'Silicon Injection', '5', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(27, 'Initial Secondary Process', 'Aluminum Preparation', '11', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(28, 'Initial Secondary Process', 'ST MAC', '4', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(29, 'Initial Secondary Process', 'Shield Wire', '4', NULL, NULL, '1', NULL, NULL, 't3', 'Initial Process'),
+(30, 'Initial Secondary Process', 'Shield Wire with Joint', '3', NULL, NULL, '1', NULL, NULL, 't3', 'Initial Process'),
+(31, 'Initial Secondary Process', 'Shield Wire Taping', '3', NULL, NULL, '1', NULL, NULL, '3', 'Initial Process'),
+(32, 'Initial Secondary Process', 'Shikakari Handling Wire Setting, Sorting & Picking', '3', NULL, NULL, NULL, '1', NULL, 't4', 'Initial Process'),
+(33, 'Initial Secondary Process', 'Gomusen Insertion', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(34, 'Special Condition_Process', 'UV-III Ultra violet', '0', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(35, 'Initial Secondary Process', 'Lamp Connector Pressure Welding', '0', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(36, 'Initial Secondary Process', 'AB Terminal Crimping', '10', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(37, 'All Initial Process', 'In-Process Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(38, 'Special Condition_Process', 'COT Automatic Cutting', '6', NULL, NULL, NULL, '1', NULL, 't4', 'Initial Process'),
+(39, 'Special Condition_Process', 'VO Automatic Cutting', '6', NULL, NULL, NULL, '1', NULL, 't4', 'Initial Process'),
+(40, 'Special Condition_Process', 'VS Automatic Cutting', '6', NULL, NULL, NULL, '1', NULL, 't4', 'Initial Process'),
+(41, 'Special Condition_Process', 'Tube Cutting Inspection', '5', NULL, NULL, NULL, '1', NULL, 't4', 'Initial Process'),
+(42, 'Final Sub Assembly Process', 'Sub Assembly Process with SUB PC', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(43, 'Final Sub Assembly Process', 'Sub Assembly Process Manual insertion', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(44, 'Final Sub Assembly Process', 'Layout Process', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(45, 'Final Sub Assembly Process', 'Airbag Sub Assembly Process', '7', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(46, 'Final Assembly Process', 'Assy + Parts Distribution', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(47, 'Final Assembly Process', 'Grommet Insertion Process', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(48, 'Final Assembly Process', 'Long Grommet Insertion Process', '3', NULL, '1', NULL, NULL, NULL, 't2', 'Final Process'),
+(49, 'Final Assembly Process', 'Option Taping Process', '2', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(50, 'Final Inspection Process', 'Dimension Inspection', '10', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(51, 'Final Inspection Process', 'Electricity Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(52, 'Final Inspection Process', 'Appearance Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(53, 'Final Inspection Process', 'Arm Type Torque Fixing Process', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(54, 'Final Inspection Process', 'Grease Injection Process', '4', NULL, '1', NULL, '1', NULL, 't24', 'Final Process'),
+(55, 'Final Inspection Process', 'Fuse Image Inspection', '5', NULL, '1', NULL, '1', NULL, 't24', 'Final Process'),
+(56, 'Final Inspection Process', 'One Liquid Silicon Injection/ Helium Leak Checker', '6', NULL, '1', '1', NULL, NULL, 't23', 'Final Process'),
+(57, 'Final Inspection Process', 'TBO Checking Process', '4', NULL, NULL, '1', NULL, NULL, 't3', 'Final Process'),
+(58, 'Final Process', 'Tsumesen Insertion', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(59, 'All Initial Process', 'Terminal Crimping Inspection C& C and Manual', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(60, 'All Initial Process', 'Battery Crimping Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(61, 'All Initial Process', 'Joint Crimping Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(62, 'All Initial Process', 'Resistance Welding Joint Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(63, 'All Initial Process', 'Dip Solder Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(64, 'All Initial Process', 'Ultrasonic Dip Solder Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(65, 'All Initial Process', 'LA Mold Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(66, 'All Initial Process', 'Shield Wire Inspection', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(67, 'All Initial and Final Process', 'Raw Material Quality Assurance Inspection', '0', NULL, NULL, NULL, NULL, '1', 't5', 'All Initial and Final Process'),
+(68, 'All Initial and Final Process', 'Plastic Tube Inspection', '0', NULL, NULL, NULL, NULL, '1', 't5', 'All Initial and Final Process'),
+(69, 'Initial Secondary Process', 'QC TCRIMP - Terminal Crimping Inspection for Airbag and Manual Crimping', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(70, 'Initial Secondary Process', 'QC JCRIMP - Joint Crimping Inspection', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(71, 'Initial Secondary Process', 'QC RES J - Resistance Welding Joint Inspection', '3', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(72, 'Special Condition_Process', 'V SHAPE TWISTING', '0', NULL, '1', '1', NULL, NULL, 't23', 'Initial Process'),
+(73, 'Final Inspection Process', 'Clamp Checking (Electricity Inspection)', '5', '1', NULL, NULL, NULL, NULL, 't1', 'Final Process'),
+(74, 'Final Assembly Process', 'Long Grommet', '3', NULL, '1', NULL, NULL, NULL, 't2', 'Final Process'),
+(75, 'All Final Process', 'Terminal Removing Process', '0', NULL, NULL, '1', NULL, NULL, 't3', NULL),
+(76, 'Initial Secondary Process', 'Re-Crimping', '0', '1', NULL, NULL, NULL, NULL, 't1', 'Initial Process'),
+(77, 'Final Assembly Process', 'Final Material Handling Production Distributor', '4', NULL, NULL, NULL, '1', NULL, 't4', 'Final Process');
 
 -- --------------------------------------------------------
 
@@ -518,10 +520,12 @@ CREATE TABLE `trs_request` (
 --
 
 INSERT INTO `trs_request` (`id`, `employee_num`, `full_name`, `position`, `department`, `section`, `emline`, `request_code`, `approval_status`, `request_date_time`, `eprocess`, `batch_no`, `esection`, `remarks`, `ft_status`, `ojt_period`, `requested_by`, `t_stats`, `training_reason`, `cancel_date`, `approval_date`, `training_type`, `training_need`, `qualif_approval_date`, `qualif_cancelled_date`) VALUES
-(4, '21-07087', 'Buendia, John Jose', 'Associate', 'Information Technology Department', 'Information Technology', 'N/A', 'RC:22102541887', '0', '2022-10-25 18:55:30', 'Cutting and Crimping Process', '1', 'PD1 Section 1', NULL, '0', '11', 'jj', 't1', 'a', '2022-10-26 09:13:43', NULL, '', '', NULL, NULL),
-(5, '21-07088', 'Cantos, Tristan Jay A.', 'a', 'a', 'a', 'N/A', 'RC:22102535019', '2', '2022-10-25 18:56:01', 'Cutting and Crimping Process', '1', 'PD1 Section 1', 'try', '1', '11', 'jj', 't1', 'a', NULL, '2022-10-26 09:42:44', '', '', NULL, NULL),
-(6, '21-07089', 'Francisco, Armida M.', 'Supervisor', 'Production 2 Department', 'Section 7', 'N/A', 'RC:22102623529', '2', '2022-10-26 14:52:54', 'Cutting and Crimping Process', '1', 'PD1 Section 1', 's', '1', '11', 'jj', 't1', 'a', NULL, '2022-10-26 09:42:44', '', '', NULL, NULL),
-(7, '21-07092', 'Manaog, Alyza C.', 'Staff', 'Production Management Department', 'Production Control', 'N/A', 'RC:22102634907', '2', '2022-10-26 18:12:33', 'Shikakari Handling Wire Setting, Sorting & Picking', '1', 'PD1 Section 1', 'sample', '1', '3', 'jj', 't4', 'a', NULL, '2022-10-26 18:12:46', NULL, NULL, NULL, NULL);
+(4, '21-07087', 'Buendia, John Jose', 'Associate', 'Information Technology Department', 'Information Technology', 'N/A', 'RC:22102541887', '3', '2022-10-25 18:55:30', 'Cutting and Crimping Process', '1', 'PD1 Section 1', '', '0', '11', 'jj', 't1', 'a', NULL, '2022-10-26 09:42:44', 'SB-Initial Training', 'Initial_First_Process', '2022-10-27', NULL),
+(5, '21-07088', 'Cantos, Tristan Jay A.', 'a', 'a', 'a', 'N/A', 'RC:22102535019', '3', '2022-10-25 18:56:01', 'Cutting and Crimping Process', '1', 'PD1 Section 1', '', '1', '11', 'jj', 't1', 'a', NULL, '2022-10-26 09:42:44', 'SB-Final Training', 'Sub Assembly Process with SUB PC', '2022-10-27', NULL),
+(6, '21-07089', 'Francisco, Armida M.', 'Supervisor', 'Production 2 Department', 'Section 7', 'N/A', 'RC:22102623529', '3', '2022-10-26 14:52:54', 'Cutting and Crimping Process', '1', 'PD1 Section 1', '', '0', '11', 'jj', 't1', 'a', NULL, '2022-10-26 09:42:44', 'Refresh-Initial Training', 'Cutting and Crimping Process', '2022-10-27', NULL),
+(7, '21-07092', 'Manaog, Alyza C.', 'Staff', 'Production Management Department', 'Production Control', 'N/A', 'RC:22102634907', '3', '2022-10-26 18:12:33', 'Shikakari Handling Wire Setting, Sorting & Picking', '1', 'PD1 Section 1', '', '0', '3', 'jj', 't4', 'a', NULL, '2022-10-26 18:12:46', 'Refresh-Final Training', 'Sub Assembly Process with SUB PC', '2022-10-27', NULL),
+(8, '22-07775', 'Kalaw, Joshua Clarence L. ', 'Associate ', 'Information Technology Department', 'Information Technology', 'N/A', 'RC:22102926355', '3', '2022-10-29 11:06:44', 'Airbag Sub Assembly Process', '1', 'PD1 Section 1', '', '1', '7', 'jj', 't1', 'a', NULL, '2022-10-29 11:08:45', 'SB-Initial Training', 'All Initial Process', '2022-10-29', NULL),
+(9, '21-07094', 'Mozo,Jocelyn A.', 'assoc', 'it', 'it', 'N/A', 'RC:22102931722', '2', '2022-10-29 11:08:01', 'Raw Material Quality Assurance Inspection', '1', 'PD1 Section 1', NULL, '1', '0', 'jj', 't5', 'a', NULL, '2022-10-29 11:08:50', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -563,6 +567,42 @@ INSERT INTO `trs_section` (`id`, `section`, `date_created`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `trs_training_sched`
+--
+
+CREATE TABLE `trs_training_sched` (
+  `id` int(20) NOT NULL,
+  `shift` varchar(255) NOT NULL,
+  `training_type` varchar(255) NOT NULL,
+  `slot` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `start_time` time(6) NOT NULL,
+  `end_time` time(6) NOT NULL,
+  `training_code` varchar(255) NOT NULL,
+  `process` varchar(255) NOT NULL,
+  `sched_stat` varchar(255) NOT NULL,
+  `trainer` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `create_by` varchar(255) DEFAULT NULL,
+  `updated_by` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trs_training_sched`
+--
+
+INSERT INTO `trs_training_sched` (`id`, `shift`, `training_type`, `slot`, `start_date`, `end_date`, `start_time`, `end_time`, `training_code`, `process`, `sched_stat`, `trainer`, `location`, `create_by`, `updated_by`) VALUES
+(1, 'DS', 'SB-Initial Training', '20', '2022-10-28', '2022-10-28', '00:00:00.000000', '00:00:00.000000', 'TR:22102847186800', 'Initial_First_Process', '2', 'a', 'a', 'jj', 'jj'),
+(2, 'DS', 'SB-Initial Training', '18', '2022-10-27', '2022-10-29', '14:00:00.000000', '13:00:00.000000', 'TR:22102832390078', 'Initial_First_Process', '2', 'jjj', 'admins', 'jj', 'jj'),
+(3, 'DS', 'SB-Final Training', '20', '2022-10-28', '2022-10-28', '00:00:00.000000', '00:00:00.000000', 'TR:22102840657499', 'Sub Assembly Process with SUB PC', '1', NULL, 'admin', 'jj', NULL),
+(4, 'DS', 'SB-Initial Training', '5', '2022-10-29', '2022-10-29', '14:00:00.000000', '14:00:00.000000', 'TR:22102910429585', 'All Initial Process', '2', 'admin', 'admin', 'jj', 'jj'),
+(5, 'DS', 'SB-Initial Training', '20', '2022-10-29', '2022-10-29', '15:00:00.000000', '17:00:00.000000', 'TR:22102945901715', 'All Initial and Final Process', '2', 'admin', 'admin', 'jj', 'jj'),
+(6, 'DS', 'SB-Final All Process', '20', '2022-10-29', '2022-10-29', '15:00:00.000000', '17:00:00.000000', 'TR:2210296852581', 'Airbag Sub Assembly Process', '2', 'admin', 'admin', 'jj', 'jj');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `trs_training_type`
 --
 
@@ -579,7 +619,9 @@ INSERT INTO `trs_training_type` (`id`, `training_type`) VALUES
 (1, 'SB-Initial Training'),
 (2, 'SB-Final Training'),
 (3, 'Refresh-Initial Training'),
-(4, 'Refresh-Final Training');
+(4, 'Refresh-Final Training'),
+(5, 'SB-Special Condition'),
+(6, 'SB-Final All Process');
 
 --
 -- Indexes for dumped tables
@@ -598,6 +640,12 @@ ALTER TABLE `trs_request`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `trs_training_sched`
+--
+ALTER TABLE `trs_training_sched`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `trs_training_type`
 --
 ALTER TABLE `trs_training_type`
@@ -611,19 +659,25 @@ ALTER TABLE `trs_training_type`
 -- AUTO_INCREMENT for table `trs_category`
 --
 ALTER TABLE `trs_category`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `trs_request`
 --
 ALTER TABLE `trs_request`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `trs_training_sched`
+--
+ALTER TABLE `trs_training_sched`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `trs_training_type`
 --
 ALTER TABLE `trs_training_type`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

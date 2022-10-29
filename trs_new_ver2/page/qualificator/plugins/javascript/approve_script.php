@@ -11,7 +11,7 @@ const load_approved_list_req_qualificator =()=>{
      // var batch = document.getElementById('batch_search_approve_qualif').value;
 
            $.ajax({
-                url: '../../process/qualificator_processor.php',
+                url: '../../process/qualification/approve_request.php',
                 type: 'POST',
                 cache: false,
                 data:{
@@ -32,26 +32,26 @@ const load_approved_list_req_qualificator =()=>{
 // function approved tab modal
 
 const get_view_qualif =(param)=>{
-     var esection = '<?=$esection;?>';
+    var esection = '<?=$esection;?>';
     var data = param.split('~!~');
     var id = data[0];
-    var batch_number = data[1];
+    var request_code = data[1];
     var approval_status = data[2];
     var request_date_time = data[3];
   
-      $('#id_approve_qualif').val(id);
-    $('#batch_number_approve_qualif').val(batch_number);
+    $('#id_approve_qualif').val(id);
+    $('#batch_number_approve_qualif').val(request_code);
     $('#approval_status_approve_qualif').val(approval_status);
     $('#req_date_time_approve_qualif').val(request_date_time);
   
     $.ajax({
-        url:'../../process/qualificator_processor.php',
+        url: '../../process/qualification/approve_request.php',
         type: 'POST',
         cache:false,
         data:{
             method: 'approveBatch',
             id:id,
-            batch_number:batch_number,
+            request_code:request_code,
             approval_status:approval_status,
             request_date_time:request_date_time,
             esection:esection
@@ -92,29 +92,28 @@ const update_for_cancel =()=>{
         arr.push($(this).val());
     });
 
-    console.log(arr);
     var numberOfChecked = arr.length;
     if(numberOfChecked > 0){
 
-
-    var newbatch_number= document.getElementById('batch_number_approve_qualif').value;
+    var request_code = document.getElementById('batch_number_approve_qualif').value;
     var reason = document.getElementById('remarks_for_cancel').value;
+    if (reason == '') {
+        swal('Information','Please Input Reason for Cancellation','info');
+    }else{
 
     $.ajax({
-        url: '../../process/qualificator_processor.php',
+        url: '../../process/qualification/cancel_request.php',
         type: 'POST',
         cache: false,
         data:{
             method: 'update_for_cancel', 
             id:arr,
-            newbatch_number:newbatch_number,
-            reason:reason
-            
+            request_code:request_code,
+            reason:reason     
         },success:function(response) {
-            console.log(response);
             if (response == 'success') {
                 load_approved_list_req_qualificator();
-                 uncheck_all();
+                uncheck_all();
                 swal('Cancel!', 'Cancel', 'info');
             }else{
                 swal('FAILED', 'FAILED', 'error');
@@ -122,6 +121,7 @@ const update_for_cancel =()=>{
         }
     });
    }
+}
 }
 
 
@@ -137,17 +137,17 @@ const undo =()=>{
     if(numberOfChecked > 0){
 
 
-    var newbatch_number= document.getElementById('batch_number_approve_qualif').value;
+    var request_code = document.getElementById('batch_number_approve_qualif').value;
     var reason = document.getElementById('remarks_for_cancel').value;
 
     $.ajax({
-        url: '../../process/qualificator_processor.php',
+        url: '../../process/qualification/approve_request.php',
         type: 'POST',
         cache: false,
         data:{
             method: 'undo_qualif',
             id:arr,
-            newbatch_number:newbatch_number,
+            request_code:request_code,
             reason:reason
             
         },success:function(response) {

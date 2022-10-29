@@ -49,12 +49,12 @@
                           <option>Select Process</option>
                            <?php
                             require '../../process/conn.php';
-                            $get_curiculum = "SELECT DISTINCT curiculum FROM trs_category";
+                            $get_curiculum = "SELECT DISTINCT categ FROM trs_category WHERE categ != 'All Initial and Final Process' GROUP BY categ";
                             $stmt = $conn->prepare($get_curiculum);
                             $stmt->execute();
                             foreach($stmt->fetchALL() as $x){
 
-                                echo '<option value="'.$x['curiculum'].'">'.$x['curiculum'].'</option>';
+                                echo '<option value="'.$x['categ'].'">'.$x['categ'].'</option>';
                             }
                      ?>
                         </select>

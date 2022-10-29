@@ -17,82 +17,68 @@
       <div class="modal-body">
            <div class="row">
                 <div class="col-3">
-                    <span> Training Type:   </span>   <select name="Training_type" id="training_type" class="form-control">
-  <option value="">Choose your option</option>
-  <option value="Special Batch Training">Special Batch Training</option>
-  <option value="Cross And Refresh Training">Cross And Refresh Training</option>
-  </select>
-                </div>
-                <div class="col-3">
-                    <span> Refresh Training Type   </span>   <select name="rtraining_type" id="rtraining_type" class="form-control" >
-  <option value="">Choose your option</option>
-  <option value="Initial">Initial</option>
-  <option value="Final">Final</option>
-
-  </select>
-                </div>
-                <div class="col-3">
-                     <span> Process   </span> 
- <select id="categ" class="form-control eprocess" onchange="load_curiculum()">
-                            <option value="">Choose your option</option>
-                       <?php
+                    <span> Training Type:</span>   
+                    <select name="Training_type" id="training_type" class="form-control" onclick="load_training_process()">
+                        <option value="">Select Training Type</option>
+                        <?php
                             require '../../process/conn.php';
-                            $get_curiculum = "SELECT DISTINCT curiculum FROM trs_category";
-                            $stmt = $conn->prepare($get_curiculum);
+                            $training_type = "SELECT DISTINCT training_type FROM trs_training_type ORDER BY training_type ASC";
+                            $stmt = $conn->prepare($training_type);
                             $stmt->execute();
                             foreach($stmt->fetchALL() as $x){
-                                echo '<option value="'.$x['curiculum'].'">'.$x['curiculum'].'</option>';
+                                echo '<option value="'.$x['training_type'].'">'.$x['training_type'].'</option>';
                             }
-                 ?>
-                        </select>
+                         ?>
+                    </select>
                 </div>
                 <div class="col-3">
-                      <span> Process   </span> 
-
- <select id="process" class="form-control eprocess">
-    <option value=""></option>
- </select>
+                    <span>Process:</span>
+                    <select name="training_process" id="training_process" class="form-control" >
+                      <option value="">Choose your option</option>
+                    </select>
+                </div>
+                 <div class="col-3">
+                    <span>Start Date:</span> 
+                    <input type="date" id="start_date"  class="form-control" autocomplete="OFF"> 
+                </div>
+                <div class="col-3">
+                     <span>End Date:</span> 
+                     <input type="date" id="end_date"  class="form-control" autocomplete="OFF"> 
                 </div>
            </div>
            <div class="row">
                 <div class="col-3">
-                      <span> Start Date </span> <input type="date" id="start_date"  class="form-control" autocomplete="OFF"> 
+                     <span>Start Time:</span> 
+                     <input type="time" id="start_time" readonly="" class="form-control" autocomplete="OFF"> 
                 </div>
                 <div class="col-3">
-                     <span> Start Time </span> <input type="time" id="start_time" readonly="" class="form-control" autocomplete="OFF"> 
+                      <span>End Time:</span> 
+                      <input type="time" id="end_time" readonly="" autocomplete="OFF" class="form-control"> 
                 </div>
                 <div class="col-3">
-                     <span> End Date </span> <input type="date" id="end_date"  class="form-control" autocomplete="OFF"> 
+                    <span>Slot:</span> 
+                    <input type="number" id="slot" class="form-control" value="20" autocomplete="OFF"> 
                 </div>
                 <div class="col-3">
-                      <span> End Time </span> <input type="time" id="end_time" readonly="" autocomplete="OFF" class="form-control"> 
-                </div>
-           </div>
-           <div class="row">
-                <div class="col-4">
-                    <span> Slot </span> <input type="number" id="slot" class="form-control"  value="20" autocomplete="OFF"> 
-                </div>
-                <div class="col-4">
-               
-                         <span> Shift   </span>   <select name="shift" id="shift" class="form-control" >
+                    <span>Shift:</span>
+                    <select name="shift" id="shift" class="form-control">
                           <option value="">Choose your option</option>
                           <option value="DS">DS</option>
                           <option value="NS">NS</option>
-
                           </select>
                  </div>
-                <div class="col-4">
-                    
-                    <span> Location:   </span> <input type="text" name="location" id="location" autocomplete="off" class="form-control">
+           </div>
+           <div class="row">  
+                <div class="col-3">
+                    <span>Location:</span> 
+                    <input type="text" name="location" id="location" autocomplete="off" class="form-control">
                 </div>              
            </div>
            <br>
            <div class="row">
                         <div class="col-12">
                           <p style="text-align:right;">
-                        <button type="button" class="btn btn-primary"  onclick="save_request()" id="planBtnCreate">Submit</button>
-
-                      
+                        <button type="button" class="btn btn-primary" onclick="save_request()" style="width:24%">Submit</button>     
                           </p>
                         </div>
            </div>

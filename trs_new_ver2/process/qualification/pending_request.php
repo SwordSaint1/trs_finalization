@@ -73,7 +73,7 @@ if($method == 'getTraining'){
         $qualiftraining_t = $_POST['value'];
        
         if ($qualiftraining_t == 'SB-Initial Training') {
-            $query = "SELECT DISTINCT curiculum FROM trs_category";
+            $query = "SELECT DISTINCT curiculum FROM trs_category WHERE curiculum IN ('Initial First Process','Initial Secondary Process','SAM Process (First Process and Sub Assembly Process)','All Initial and Final Process','All Initial Process') ORDER BY curiculum ASC";
             $stmt = $conn->prepare($query);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
@@ -81,9 +81,29 @@ if($method == 'getTraining'){
                 echo '<option value="'.$j['curiculum'].'">'.$j['curiculum'].'</option>';
                 }
             }
+        }else if($qualiftraining_t == 'SB-Special Condition'){
+            $stmt = NULL;
+            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum LIKE 'Special Condition_Process%' ORDER BY eprocess ASC";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                foreach($stmt->fetchALL() as $j){
+                echo '<option value="'.$j['eprocess'].'">'.$j['eprocess'].'</option>';
+                }
+            }
+        }else if($qualiftraining_t == 'SB-Final All Process'){
+            $stmt = NULL;
+            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum = 'All Final Process' ORDER BY eprocess ASC";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                foreach($stmt->fetchALL() as $j){
+                echo '<option value="'.$j['eprocess'].'">'.$j['eprocess'].'</option>';
+                }
+            }
         }else if($qualiftraining_t == 'SB-Final Training'){
             $stmt = NULL;
-            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum LIKE 'final%'";
+            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum IN ('Final Sub Assembly Process','Final Assembly Process','Final Inspection Process','Final Process','All Initial and Final Process') ORDER BY eprocess ASC";
             $stmt = $conn->prepare($query);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
@@ -93,7 +113,7 @@ if($method == 'getTraining'){
             }
         }else if($qualiftraining_t == 'Refresh-Initial Training'){
             $stmt = NULL;
-            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum LIKE 'initial%'";
+            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum IN ('Initial First Process','Initial Secondary Process','SAM Process (First Process and Sub Assembly Process)','All Initial and Final Process','All Initial Process') ORDER BY eprocess ASC";
             $stmt = $conn->prepare($query);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
@@ -103,7 +123,7 @@ if($method == 'getTraining'){
             }
         }else{
             $stmt = NULL;
-            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum LIKE 'final%'";
+            $query = "SELECT DISTINCT eprocess FROM trs_category WHERE curiculum IN ('Final Sub Assembly Process','Final Assembly Process','Final Inspection Process','Final Process','All Initial and Final Process') ORDER BY eprocess ASC";
             $stmt = $conn->prepare($query);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {

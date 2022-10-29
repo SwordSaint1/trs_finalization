@@ -54,13 +54,12 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 420px;">
+              <div class="card-body table-responsive p-0" style="height: 500px;">
                 <table class="table table-head-fixed text-nowrap table-hover">
                 <thead style="text-align:center;">
                     <th>#</th>
                     <th>Training Code</th>
                     <th>Training Type</th>
-                    <th>Refresh Training Type</th>
                     <th>Process</th>
                     <th>Slot</th>
                     <th>Shift</th>

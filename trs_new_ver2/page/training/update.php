@@ -54,14 +54,14 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 420px;">
+              <div class="card-body table-responsive p-0" style="height: 500px;">
                 <table class="table table-head-fixed text-nowrap table-hover">
                 <thead style="text-align:center;">
                     <th>#</th>
                     <th>Training Code</th>
                     <th>Training Type</th>
                     <th>Process</th>
-                      <th>Trainer</th>
+                    <th>Trainer</th>
                     <th>Location</th>
                     <th>Slot</th>
                     <th>Shift</th>
@@ -69,7 +69,6 @@
                     <th>Start Time</th>
                     <th>End Date</th>
                     <th>End Time</th>
-                  
                     <th>Created By</th>
                     <th>Updated By</th>
             </thead>

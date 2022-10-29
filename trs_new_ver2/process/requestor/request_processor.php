@@ -91,17 +91,28 @@ if($method == 'prev_req') {
 }
 
 if($method == 'getCuriculum'){
-    $categ = $_POST['value'];
-     
-    $fetchReason = "SELECT eprocess FROM trs_category WHERE curiculum = '$categ'";
+    $value = $_POST['value'];
 
-    $stmt = $conn->prepare($fetchReason);
-    $stmt->execute();
-    if($stmt->rowCount() > 0){
-        foreach($stmt->fetchALL() as $x){	
-                echo '<option value="'.$x['eprocess'].'">'.$x['eprocess'].'</option>';
+    if ($value == 'Initial Process') {
+    	$query = "SELECT eprocess FROM trs_category WHERE categ IN ('$value','All Initial and Final Process') ORDER BY eprocess ASC";
+    	$stmt = $conn->prepare($query);
+    	$stmt->execute();
+    	if ($stmt->rowCount() > 0) {
+    		foreach($stmt->fetchALL() as $j){
+    			echo '<option value="'.$j['eprocess'].'">'.$j['eprocess'].'</option>';
                 $stmt = NULL;
-        }
+    		}
+    	}
+    }elseif($value == 'Final Process'){
+    	$query = "SELECT eprocess FROM trs_category WHERE categ IN ('$value','All Initial and Final Process') ORDER BY eprocess ASC";
+    	$stmt = $conn->prepare($query);
+    	$stmt->execute();
+    	if ($stmt->rowCount() > 0) {
+    		foreach($stmt->fetchALL() as $j){
+    			echo '<option value="'.$j['eprocess'].'">'.$j['eprocess'].'</option>';
+                $stmt = NULL;
+    		}
+    	}
     }
 }
 

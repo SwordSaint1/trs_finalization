@@ -174,9 +174,8 @@ const cancel_pending =()=>{
     var numberOfChecked = arr.length;
     if(numberOfChecked > 0){
 
-
     var request_code= document.getElementById('batch_number_pending_approval_qualif').value;
-      var qualiftraining_n= document.getElementById('qualiftraining_n_pending_approval').value;
+    var qualiftraining_n= document.getElementById('qualiftraining_n_pending_approval').value;
     var qualiftraining_t = $('#qualiftraining_t_pending_approval').val();
     var qualif_remarks = $('#qualif_remarks_pending_approval').val();
 
@@ -186,11 +185,11 @@ const cancel_pending =()=>{
    } else{ 
 
     $.ajax({
-        url: '../../process/qualificator_processor.php',
+        url: '../../process/qualification/cancel_request.php',
         type: 'POST',
         cache: false,
         data:{
-            method: 'cancel_qualif_pending_approval',
+            method: 'cancel_qualif_pending',
             id:arr,
             request_code:request_code,
             qualif_remarks:qualif_remarks,
@@ -227,7 +226,7 @@ const approve_pending =()=>{
 
 
     var request_code= document.getElementById('batch_number_pending_approval_qualif').value;
-      var qualiftraining_n= document.getElementById('qualiftraining_n_pending_approval').value;
+    var qualiftraining_n= document.getElementById('qualiftraining_n_pending_approval').value;
     var qualiftraining_t = $('#qualiftraining_t_pending_approval').val();
     var qualif_remarks = $('#qualif_remarks_pending_approval').val();
  
@@ -239,11 +238,11 @@ const approve_pending =()=>{
     else{
 
     $.ajax({
-        url: '../../process/qualificator_processor.php',
+        url: '../../process/qualification/approve_request.php',
         type: 'POST',
         cache: false,
         data:{
-            method: 'approve_qualif_pending_approval',
+            method: 'approve_qualif_pending',
             id:arr,
             request_code:request_code,
             qualif_remarks:qualif_remarks,

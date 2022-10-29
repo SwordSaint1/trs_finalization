@@ -137,46 +137,41 @@ if($method == 'set'){
 
 
 if($method == 'update'){
-        $dateTo = $_POST['dateTo'];
-        $dateFrom = $_POST['dateFrom'];           
-        $c=0;
-       $query = "SELECT *,date_format(start_date, '%m-%d-%Y') as start_date
+    $dateTo = $_POST['dateTo'];
+    $dateFrom = $_POST['dateFrom'];           
+    $c=0;
+    
+    $query = "SELECT *,date_format(start_date, '%m-%d-%Y') as start_date
        ,date_format(end_date, '%m-%d-%Y') as end_date
        ,TIME_FORMAT(start_time, '%H:%i:%s') as start_time, TIME_FORMAT(end_time, '%H:%i:%s') as end_time FROM trs_training_sched WHERE sched_stat = 2 AND (start_date >='$dateFrom 00:00:00' AND end_date <= '$dateTo 23:59:59')";
-
-        $stmt = $conn->prepare($query);
-        $stmt->execute();
-        if($stmt->rowCount() > 0){
-            foreach($stmt->fetchALL() as $x){
-               $c++; 
-
-                
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    if($stmt->rowCount() > 0){
+        foreach($stmt->fetchALL() as $x){
+            $c++; 
             echo '<tr style="cursor:pointer;" class="modal-trigger" data-toggle="modal" data-target="#update" onclick="get_update(&quot;'.$x['id'].'~!~'.$x['shift'].'~!~'.$x['training_type'].'~!~'.$x['slot'].'~!~'.$x['training_code'].'~!~'.$x['rtraining_type'].'~!~'.$x['sched_stat'].'&quot;)">';
-
-                echo '<td>'.$c.'</td>';   
-                echo '<td>'.$x['training_code'].'</td>';
-                echo '<td>'.$x['training_type'].'</td>';
-                echo '<td>'.$x['process'].'</td>';
-                 echo '<td>'.$x['trainer'].'</td>';
-                echo '<td>'.$x['location'].'</td>';
-                echo '<td>'.$x['slot'].'</td>';
-                echo '<td>'.$x['shift'].'</td>';
-                echo '<td>'.$x['start_date'].'</td>';
-                echo '<td>'.$x['start_time'].'</td>';
-                echo '<td>'.$x['end_date'].'</td>';
-                echo '<td>'.$x['end_time'].'</td>';
-               
-                echo '<td>'.$x['create_by'].'</td>';
-                echo '<td>'.$x['updated_by'].'</td>';
-
+                    echo '<td>'.$c.'</td>';   
+                    echo '<td>'.$x['training_code'].'</td>';
+                    echo '<td>'.$x['training_type'].'</td>';
+                    echo '<td>'.$x['process'].'</td>';
+                    echo '<td>'.$x['trainer'].'</td>';
+                    echo '<td>'.$x['location'].'</td>';
+                    echo '<td>'.$x['slot'].'</td>';
+                    echo '<td>'.$x['shift'].'</td>';
+                    echo '<td>'.$x['start_date'].'</td>';
+                    echo '<td>'.$x['start_time'].'</td>';
+                    echo '<td>'.$x['end_date'].'</td>';
+                    echo '<td>'.$x['end_time'].'</td>';  
+                    echo '<td>'.$x['create_by'].'</td>';
+                    echo '<td>'.$x['updated_by'].'</td>';
                 echo '</tr>';
             }
-        }else{
+    }else{
         echo '<tr>';
             echo '<td colspan="13" style="text-align:center;">NO RESULT</td>';
-            echo '</tr>';
-            }
+        echo '</tr>';
     }
+}
 
 
 

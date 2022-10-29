@@ -157,6 +157,7 @@ const load_prev =()=>{
 
 const load_curiculum =()=>{        
     var value = document.querySelector('#categ').value;
+   console.log(value);
         $.ajax({
             url: '../../process/requestor/request_processor.php',
             type: 'POST',

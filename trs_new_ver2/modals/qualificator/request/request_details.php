@@ -36,8 +36,8 @@
                             <option value="">Select Training Type</option>
                         <?php
                             require '../../process/conn.php';
-                            $get_curiculum = "SELECT DISTINCT training_type FROM trs_training_type";
-                            $stmt = $conn->prepare($get_curiculum);
+                            $training_type = "SELECT DISTINCT training_type FROM trs_training_type ORDER BY training_type ASC";
+                            $stmt = $conn->prepare($training_type);
                             $stmt->execute();
                             foreach($stmt->fetchALL() as $x){
                                 echo '<option value="'.$x['training_type'].'">'.$x['training_type'].'</option>';
